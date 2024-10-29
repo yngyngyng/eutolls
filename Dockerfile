@@ -7,9 +7,10 @@ WORKDIR /app
 # Install dependencies based on the preferred package manager
 COPY package.json bun.lockb ./
 RUN if [ -f bun.lockb ]; then \
+  echo "Installing dependencies..." && \
   bun install --frozen-lockfile; \
 else \
-  echo "Lockfile not found." && exit 1; \
+  echo "Error: bun.lockb not found!" && exit 1; \
 fi
 
 # Rebuild the source code only when needed
@@ -25,9 +26,18 @@ ENV NEXT_PUBLIC_GOOGLE_ANALYTICS ${GOOGLE_ANALYTICS}
 ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN if [ -f bun.lockb ]; then \
-  bun run build; \
+  echo "Installing dependencies..." && \
+  bun install --frozen-lockfile && \
+  echo "Starting build process..." && \
+  (bun run build || \
+  (echo "❌ Build failed! This might be due to:" && \
+   echo "   - Linting errors" && \
+   echo "   - Type checking errors" && \
+   echo "   - Other build-time errors" && \
+   echo "Check the errors above for more details." && \
+   exit 1)); \
 else \
-  echo "Lockfile not found." && exit 1; \
+  echo "❌ Error: bun.lockb not found!" && exit 1; \
 fi
 
 FROM base AS runner

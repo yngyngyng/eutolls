@@ -2,6 +2,7 @@
 import React from 'react'
 import { PinContainer } from '@/components/ui/3d-pin'
 import { CountriesData } from '@/data/countriesData'
+import Image from 'next/image'
 
 export function ContentContainer() {
 	return (
@@ -16,7 +17,13 @@ export function ContentContainer() {
 							<div className='text-base !m-0 pb-3 font-normal'>
 								<span className='text-slate-400'>{country.description}</span>
 							</div>
-							<img src={country.image} className='rounded-md aspect-video' />
+							<Image
+								src={country.image}
+								alt={country.title}
+								className='rounded-md aspect-video'
+								width={512}
+								height={512}
+							/>
 						</div>
 					</PinContainer>
 				))}
