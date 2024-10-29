@@ -19,6 +19,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Create public directory if not present
+RUN mkdir -p public
+
 ARG INSTANCE
 ARG GOOGLE_ANALYTICS
 ENV NODE_ENV ${INSTANCE}
