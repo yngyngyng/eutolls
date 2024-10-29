@@ -8,10 +8,11 @@ WORKDIR /app
 
 # Install dependencies based on the preferred package manager
 COPY package.json bun.lockb ./
-RUN \
-  if [ -f bun.lockb ]; then bun install --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN if [ -f bun.lockb ]; then \
+  bun install --frozen-lockfile; \
+else \
+  echo "Lockfile not found." && exit 1; \
+fi
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -25,10 +26,11 @@ ENV NODE_ENV ${INSTANCE}
 ENV NEXT_PUBLIC_GOOGLE_ANALYTICS ${GOOGLE_ANALYTICS}
 ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN \
-  if [ -f bun.lockb ]; then bun install --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN if [ -f bun.lockb ]; then \
+  bun install --frozen-lockfile; \
+else \
+  echo "Lockfile not found." && exit 1; \
+fi
 
 FROM base AS runner
 WORKDIR /app
