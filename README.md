@@ -25,6 +25,11 @@ This open-source project aims to:
 
 ## Getting Started
 
+### Perquisites
+
+- Node.js (v20 or above)
+- Bun
+
 ### Clone the repository
 
 `git clone https://github.com/yngyngyng/eutolls.git`
@@ -38,7 +43,7 @@ bun install
 
 ### Run development server
 
-bun run dev
+`bun run dev`
 
 ### Contributing
 
@@ -52,9 +57,8 @@ Contributions are welcome! Please feel free to:
 ## Roadmap
 
 - [ ] Add interactive map
-- [ ] Include pricing information
-- [ ] Add multi-language support
-- [ ] Implement user reviews/feedback
+- [ ] Include detailed information
+- [ ] Trip planning
 
 ## License
 
