@@ -5,6 +5,7 @@ import GoogleAnalytics from '@/lib/ga'
 import { CookieConsentComponent } from '@/components/ui/cookie-consent'
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://eutolls.eu'),
 	title: '🇪🇺 EU Tolls - Buy EU vignette without markup',
 	description:
 		'Directory of official vignette selling points for European roads.'
