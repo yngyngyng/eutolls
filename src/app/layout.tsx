@@ -3,12 +3,15 @@ import './globals.css'
 import 'vanilla-cookieconsent/dist/cookieconsent.css'
 import GoogleAnalytics from '@/lib/ga'
 import { CookieConsentComponent } from '@/components/ui/cookie-consent'
+import { headers } from 'next/headers'
 
-export const metadata: Metadata = {
-	metadataBase: new URL('https://eutolls.eu'),
-	title: '🇪🇺 EU Tolls - Buy EU vignette without markup',
-	description:
-		'Directory of official vignette selling points for European roads.'
+export async function generateMetadata(): Promise<Metadata> {
+	return {
+		metadataBase: new URL(`https://${(await headers()).get('host')}`),
+		title: '🇪🇺 EU Tolls - Buy EU vignette without markup',
+		description:
+			'Directory of official vignette selling points for European roads.'
+	}
 }
 
 export default function RootLayout({
