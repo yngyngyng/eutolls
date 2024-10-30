@@ -15,7 +15,7 @@ export function Header() {
 					Inspired by{' '}
 					<Link
 						href='https://www.youtube.com/watch?v=89lO0zzS9K8'
-						target='blank'
+						target='_blank'
 						className='text-blue-200'
 					>
 						📺 YouTube video from Honest Guide
