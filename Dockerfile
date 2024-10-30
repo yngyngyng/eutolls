@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package.json bun.lockb ./
 RUN if [ -f bun.lockb ]; then \
   echo "Installing dependencies..." && \
-  bun install --frozen-lockfile; \
+  bun install; \
 else \
   echo "Error: bun.lockb not found!" && exit 1; \
 fi
@@ -30,7 +30,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN if [ -f bun.lockb ]; then \
   echo "Installing dependencies..." && \
-  bun install --frozen-lockfile && \
+  bun install && \
   echo "Starting build process..." && \
   (bun run build || \
   (echo "❌ Build failed! This might be due to:" && \
