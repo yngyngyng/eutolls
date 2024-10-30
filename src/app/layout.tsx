@@ -5,8 +5,9 @@ import GoogleAnalytics from '@/lib/ga'
 import { CookieConsentComponent } from '@/components/ui/cookie-consent'
 
 export const metadata: Metadata = {
-	title: '🇪🇺 EU Tolls',
-	description: 'Official vignette selling points.'
+	title: '🇪🇺 EU Tolls - Buy EU vignette without markup',
+	description:
+		'Directory of official vignette selling points for European roads.'
 }
 
 export default function RootLayout({
