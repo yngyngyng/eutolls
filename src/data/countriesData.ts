@@ -23,7 +23,7 @@ export const CountriesData: Array<CountriesData> = [
 		link: 'https://shop.asfinag.at',
 		title: '🇦🇹 Austria',
 		description: 'https://shop.asfinag.at',
-		image: 'https://vignetteaustria.com/assets/images/img1.jpg'
+		image: 'https://files.structurae.net/files/photos/2546/a10a-cimg1697.jpg'
 	},
 	{
 		link: 'https://eznamka.sk/en/',
